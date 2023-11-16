@@ -1,12 +1,12 @@
 {
-  "name": "antd-theme-generator",
-  "version": "1.2.10",
-  "description": "This a script to generate color specific styles less file and which you can use to change theme dynamically in browser",
+  "name": "antd-theme-generator-fit5",
+  "version": "1.0.0",
+  "description": "This a script to generate color specific styles less file and which you can use to change theme dynamically in browser; Fit antd@5",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix index.js",
-    "deploy": "cd examples/customize-cra && npm run build && gh-pages -d build && cd ../../"
+    "deploy": "cd examples/create-react-app-fit5 && node color.js"
   },
   "bundledDependencies": [
     "glob",
@@ -34,12 +34,12 @@
     "css"
   ],
   "author": {
-    "name": "mzohaibqc",
-    "url": "https://github.com/mzohaibqc"
+    "name": "mangwu",
+    "url": "https://github.com/mangwu"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mzohaibqc/antd-theme-generator"
+    "url": "git://github.com/mangwu/antd-theme-generator-fit5"
   },
   "license": "ISC",
   "devDependencies": {

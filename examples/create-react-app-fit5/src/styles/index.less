@@ -1,0 +1,639 @@
+@import "variables.less";
+
+html {
+  background-color: @html-bg;
+  --antd-wave-shadow-color: @primary-color;
+  --scroll-bar: 0;
+  /*整个滚动条*/
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+  }
+  /*定义滚动条轨道*/
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  /*定义滑块*/
+  ::-webkit-scrollbar-thumb {
+    background-color: @scrollbar-bg;
+    border-radius: 4px;
+  }
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: @html-bg;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+a {
+  color: @font-text-color;
+}
+
+a:hover {
+  color: @primary-color;
+}
+
+a:visited {
+  color: @font-text-color;
+}
+
+.g6-tooltip {
+  padding: 10px 6px;
+  color: @gray;
+  background-color: @g6-bg;
+  border: 1px solid @g6-border;
+  border-radius: 4px;
+}
+
+.drop-item-disable {
+  cursor: not-allowed !important;
+  span,
+  svg {
+    color: @disable-color !important;
+  }
+}
+
+/** 表格父级容器的样式 全局 */
+.global-table-container {
+  margin: @margin-width;
+  padding: 10px @padding-width;
+  background-color: @light;
+  &.no-margin {
+    margin: 0;
+  }
+}
+
+/** 表格标题的样式 全局 */
+.global-table-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  &.batch {
+    background-color: @table-header-batch-bg;
+    height: 40px;
+  }
+  h4 {
+    font-size: 16px;
+    // width: 200px;
+    display: flex;
+    align-items: center;
+  }
+  h6 {
+    font-size: 14px;
+    color: @orange;
+    display: flex;
+    align-items: center;
+    padding-left: @padding-width;
+    padding-top: 6px;
+    span {
+      margin-left: @padding-width;
+      color: @gray;
+      i {
+        font-style: normal;
+        color: @primary-color;
+        font-weight: 700;
+      }
+    }
+    .batch-title {
+      box-sizing: border-box;
+      font-size: 14px;
+      color: #434850;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      margin-left: 0;
+    }
+    .batch-num {
+      color: #3a6fff;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .global-table-header-toolbar {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    .input {
+      width: 200px;
+    }
+    .ant-select {
+      margin-left: 10px;
+    }
+    .ant-input-group {
+      width: auto;
+    }
+    .btn {
+      margin-left: 10px;
+    }
+    .icon-svg {
+      margin-right: 4px;
+      font-size: 13px;
+    }
+    .batch-btn {
+      margin: 0 2px;
+      color: @primary-color;
+      cursor: pointer;
+    }
+    .del-btn {
+      color: @delete-color;
+    }
+    .close-icon {
+      margin-right: 16px;
+      margin-left: 30px;
+      cursor: pointer;
+      color: #8b8e93;
+    }
+  }
+}
+
+.global-setting-body {
+  width: 100%;
+  height: 100%;
+  background: @gray-700;
+  .global-setting-container {
+    padding: @padding-width;
+    .global-setting-form {
+      background-color: @light;
+      padding: 30px 30px 20px 30px;
+      margin-top: 20px;
+      margin-bottom: @padding-width;
+      .ant-form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .ant-form-item {
+          width: 380px;
+          margin-right: 30px;
+          .ant-input-number {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .global-setting-footer {
+    width: 100%;
+    height: 60px;
+    background-color: @light;
+    box-shadow: 0px -2px 4px 0px @global-setting-footer-shadow-color;
+    position: fixed;
+    bottom: 0;
+    .footer-btn {
+      position: absolute;
+      z-index: 99;
+      right: 0;
+      width: 160px;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan]):before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 1.6em;
+  background-color: @ant-table-thead-bg;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+  content: "";
+}
+
+/* 基础表格样式 */
+.base-table {
+  .ant-table-thead > tr > th {
+    background: @th-bg-color;
+    border-bottom: none;
+  }
+  .ant-table-tbody
+    > tr:hover:not(.ant-table-expanded-row, .ant-table-placeholder)
+    > td {
+    background-color: @row-hover-color;
+  }
+  .ant-table-body .ant-table-row-hover {
+    background: @row-hover-color;
+  }
+  .ant-table-body .ant-table-row-hover > td {
+    background: @row-hover-color;
+  }
+}
+
+/* 基础抽屉样式 */
+.base-drawer {
+  .ant-input-number {
+    width: 100%;
+  }
+  .ant-drawer-footer {
+    padding-right: 24px;
+    .footer-content {
+      text-align: right;
+      .drawer-cancel {
+        margin-right: 10px;
+      }
+    }
+  }
+  .ant-form {
+    .ant-form-item {
+      .ant-input-number {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.form-tips {
+  margin-bottom: 25px;
+  color: @form-tips-color;
+  display: flex;
+  img {
+    width: 18px;
+    margin-right: 8px;
+  }
+}
+
+// 可用按钮颜色
+.action-btn {
+  color: @primary-color;
+  cursor: pointer;
+  a {
+    color: @primary-color;
+  }
+}
+
+.action-delete-btn {
+  color: @delete-color;
+  cursor: pointer;
+  a {
+    color: @delete-color;
+  }
+}
+.action-delete-btn[aria-disabled="true"] {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+  a {
+    color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+.action-type {
+  color: @orange;
+  cursor: pointer;
+  a {
+    color: @orange;
+  }
+}
+
+// 禁用按钮
+.disable-btn {
+  color: @disable-color;
+  cursor: not-allowed;
+}
+
+// 提醒文字样式
+.tips {
+  margin-bottom: 10px;
+  color: @gray-100;
+  .anticon {
+    color: @primary-color;
+    margin-right: 4px;
+  }
+}
+
+// 详情页表格样式
+.detail-table-body {
+  padding: 10px;
+  .detail-table-title {
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+}
+
+// 1440px 的编辑界面
+.common-container {
+  width: 100%;
+  height: calc(100vh - @header-height);
+  background-color: @gray-700;
+  overflow: hidden;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  .common-wrapper {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    /*整个滚动条*/
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      background-color: transparent;
+    }
+    /*定义滚动条轨道*/
+    &::-webkit-scrollbar-track {
+      background-color: @common-container-scrollbar-color;
+    }
+    /*定义滑块*/
+    &::-webkit-scrollbar-thumb {
+      background-color: @common-container-scrollbar-color;
+      border-radius: 4px;
+    }
+    .common-content {
+      width: 1300px;
+      max-width: 1300px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .breadcrumb {
+        padding: @padding-width 0;
+      }
+      .common-form-content {
+        width: 100%;
+      }
+      .form-content,
+      .table-content {
+        background-color: @light;
+        padding: 30px;
+        margin-bottom: @padding-width;
+        h3 {
+          font-size: 16px;
+          padding-bottom: @padding-width;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          position: relative;
+          .icon {
+            margin-left: -20px;
+            margin-right: 6px;
+            img {
+              width: 18px;
+              height: 18px;
+              margin-top: -12px;
+            }
+          }
+          .status {
+            width: 64px;
+            height: 20px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 20px;
+            background: @table-content-status-bg;
+            color: @table-content-status-color;
+            border-radius: 2px;
+            margin-left: 10px;
+            &.disabled {
+              background: @common-container-scrollbar-color;
+              color: @scrollbar-bg;
+            }
+          }
+          .delete {
+            position: absolute;
+            right: 0;
+            .icon-svg {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+      .form-content {
+        .ant-form {
+          display: grid;
+          grid-template-columns: 33.33% 33.33% 33.33%;
+          grid-column-gap: 30px;
+          box-sizing: border-box;
+          width: calc(100% - 60px);
+          // flex-direction: row;
+          // flex-wrap: wrap;
+          // justify-content: space-between;
+          .ant-form-item {
+            width: 100%;
+            .ant-input-number {
+              width: 100%;
+            }
+          }
+        }
+        .form-btn {
+          text-align: right;
+          .ant-btn {
+            margin-left: 6px;
+          }
+        }
+      }
+      .form-content-two-item {
+        background-color: @light;
+        padding: 30px;
+        margin-bottom: @padding-width;
+        .ant-form {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          .ant-form-item {
+            width: 380px;
+            margin-right: 100px;
+            .ant-input-number {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .table-content {
+        .table-title {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .table-title-toolbar {
+            .icon-svg {
+              margin-right: 4px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer-btn-bg {
+    width: 100%;
+    height: 60px;
+    background-color: @light;
+    display: flex;
+    justify-content: center;
+    .footer-btn {
+      width: 1300px;
+      height: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+  }
+}
+
+// tab菜单公共样式
+.base-tab {
+  .ant-tabs {
+    .ant-tabs-nav {
+      background-color: @light;
+      margin-bottom: 0;
+      &::before {
+        border-bottom: 0;
+      }
+      .ant-tabs-nav-list {
+        margin-left: 50px;
+      }
+    }
+  }
+}
+
+.column-left {
+  height: calc(100vh - @header-height);
+  background-color: @menu-secondary-bg;
+  position: relative;
+  float: left;
+  .resize-save {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+  }
+  .resize-bar {
+    min-width: 0;
+    height: inherit;
+    max-width: 600px;
+    resize: horizontal;
+    cursor: ew-resize;
+    cursor: col-resize;
+    opacity: 0;
+    overflow: scroll;
+  }
+  /* 拖拽线 */
+  .resize-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 1px solid @gray-500;
+    border-left: 1px solid @gray-500;
+    pointer-events: none;
+  }
+  .shrink {
+    position: absolute;
+    width: 12px;
+    height: 60px;
+    font-size: 10px;
+    background: @menu-secondary-bg;
+    border: 1px solid @column-left-shrink-border;
+    border-radius: 0 4px 4px 0;
+    right: -11px;
+    top: calc(100vh / 2 - @hierarchy-height);
+    cursor: pointer;
+    line-height: 58px;
+    color: @shrink-color;
+    z-index: 500;
+  }
+}
+.column-right {
+  height: calc(100vh - @header-height);
+  box-sizing: border-box;
+  overflow: hidden;
+  // width: calc(100% - 240px);
+  flex: 1;
+}
+.resize-bar:hover ~ .resize-line,
+.resize-bar:active ~ .resize-line {
+  border-left: 1px solid @resize-bar-border;
+}
+.resize-bar::-webkit-scrollbar {
+  min-width: 0px;
+  height: inherit;
+}
+
+// 筛选下拉框样式
+.table-header-input-group {
+  .table-header-select-search {
+    width: 106px;
+  }
+  .search-divider {
+    width: 1px;
+    height: 15px;
+    display: inline-block;
+    background: #eaedf3;
+    position: absolute;
+    z-index: 1;
+    margin-top: 8px;
+  }
+  .ant-select:hover ~ .search-divider,
+  .ant-select-focused ~ .search-divider,
+  .input ~ .search-divider {
+    background: transparent;
+  }
+
+  .input {
+    // border-left-color: transparent;
+    &:hover,
+    &:focus {
+      border-left-color: @primary-color;
+    }
+  }
+}
+
+.filter-item {
+  padding: 5px 36px 5px 0;
+  &:hover {
+    background-color: @filter-item-bg;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-select-label {
+  width: 100%;
+  padding-right: 8px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  .gray {
+    color: @gray-200;
+  }
+}
