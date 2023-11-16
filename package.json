@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix index.js",
-    "deploy": "cd examples/create-react-app-fit5 && node color.js"
+    "deploy": "cd examples/create-react-app-fit5 && node color.js",
+    "release": "release-it"
   },
   "bundledDependencies": [
     "glob",
@@ -43,12 +44,18 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
     "eslint": "^7.0.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0"
+    "gh-pages": "^2.2.0",
+    "release-it": "^17.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.org/"
   }
 }
