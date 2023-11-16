@@ -1,6 +1,10 @@
-# antd-theme-generator
+# antd-theme-generator-fit5
 
-This script generates color specific styles/less file which you can use to change theme dynamically in browser
+This project forks from [ant-theme-generator](https://github.com/mzohaibqc/antd-theme-generator) to address the issue of removing less after upgrading to version 5 of antd, which prevents the old project from generating theme files through `antd.less`
+
+This script generates color specific styles/less file which you can use to change theme dynamically in browser.
+
+
 
 ## Example:
 
@@ -32,11 +36,12 @@ generateTheme(options).then(less => {
 | themeVariables | array | ['@primary-color'] | List of variables that you want to dynamically change |
 | outputFilePath | string | - | Generated less content will be written to file path specified otherwise it will not be written. However, you can use returned output and write in any file as you want |
 | customColorRegexArray | array | ['color', 'lighten', 'darken', 'saturate', 'desaturate', 'fadein', 'fadeout', 'fade', 'spin', 'mix', 'hsv', 'tint', 'shade', 'greyscale', 'multiply', 'contrast', 'screen', 'overlay'].map(name => new RegExp(`${name}\(.*\)`))] | This array is to provide regex which will match your color value, most of the time you don't need this |
+| useAntdLess | boolean | true | If the Antd version is above 5, please pass `false` ; This parameter ensures the generation of a `color.less` file that does not include the antd style |
 
 
 Add following lines in your main html file
 
-```
+```html
 <link rel="stylesheet/less" type="text/css" href="/color.less" />
 <script>
   window.less = {
@@ -49,7 +54,7 @@ Add following lines in your main html file
 
 Now you can update colors by updating less variables like this
 
-```
+```javascript
 window.less.modifyVars({
   '@primary-color': '#0035ff'
 })
