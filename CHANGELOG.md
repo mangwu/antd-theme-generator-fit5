@@ -1,5 +1,17 @@
 
 
+# 1.2.0 (2023-11-16)
+
+
+### Bug Fixes
+
+* Break of `[@import](https://github.com/import) (reference) './index';` ([#93](https://github.com/mangwu/antd-theme-generator-fit5/issues/93)) ([da90676](https://github.com/mangwu/antd-theme-generator-fit5/commit/da90676ac09794d93e6ab51e587434ea91075337))
+
+
+### Features
+
+* stylesDir support multiple styles dir in options ([df66f18](https://github.com/mangwu/antd-theme-generator-fit5/commit/df66f18696fc5e910ba7766bfae9b88642704ae9))
+
 # 1.1.0 (2023-11-16)
 
 
