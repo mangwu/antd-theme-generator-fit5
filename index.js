@@ -648,7 +648,7 @@ async function generateTheme({
     // 复制color到输出路径
     const outputColorFilePath =
       outputFilePath.slice(0, outputFilePath.lastIndexOf("color.less")) +
-      "color\\";
+      "color";
     copyDir(path.join(__dirname, "./color"), outputColorFilePath, (err) => {
       console.log("color文件夹复制有误", err);
     });
